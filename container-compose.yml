@@ -34,6 +34,22 @@ services:
       METASTORE_DB_HOSTNAME: mariadb
     depends_on:
       - mariadb
+      - radosgw
+    networks:
+      - trino-network
+
+
+  radosgw:
+    hostname: radosgw
+    image: 'quay.io/dparkes/zgw-dbstore:latest'
+    ports:
+      - '7480:7480'
+    volumes:
+      - /mnt:/var/lib/ceph/radosgw
+    environment:
+      ACCESS_KEY: hive
+      SECRET_KEY: hive
+      COMPONENT: zgw-dbstore
     networks:
       - trino-network
 

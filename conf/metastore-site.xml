@@ -43,7 +43,7 @@
     </property>
     <property>
         <name>fs.s3a.endpoint</name>
-        <value>http://10.70.56.71:8080</value>
+        <value>http://radosgw:7480</value>
     </property>
     <property>
         <name>fs.s3a.path.style.access</name>
